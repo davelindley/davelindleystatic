@@ -24,6 +24,8 @@
 
     <link rel="stylesheet" href="css/style.css">
 
+
+
     <script>
     function submitToAPI(e) {
        e.preventDefault();
@@ -63,7 +65,7 @@
 
        $.ajax({
          type: "POST",
-         url : "https://3p9et5rmu5.execute-api.us-east-1.amazonaws.com/Prod/contact-me",
+         url : URL,
          dataType: "json",
          crossDomain: "true",
          contentType: "application/json; charset=utf-8",
@@ -82,12 +84,16 @@
          }});
      }
 
+
+
+
     </script>
-    <style>
-      .imgbox{
-        max-width: 950px;
-      }
-    </style>
+
+<style>
+  .imgbox{
+    max-width: 950px;
+  }
+</style>
 
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -154,8 +160,15 @@
             <div class="row">
               <div class="col-lg-6">
                 <h1 class="text-black">I'm Dave Lindley</h1>
-                <p class="lead">a Data Junkie based in Tampa, FL</p>
-                <p><a href="#services-section" class="btn smoothscroll btn-primary">Services</a>  <a href="images/DaveLindleyDecember2019.pdf" class="btn smoothscroll btn-primary">My Resume</a></p>
+                <p class="lead">a <span class="lead" id="cycle-content-2">New Zealander</span>
+                                <span class="lead" id="cycle-content-3">Software Developer</span>
+                                <span class="lead" id="cycle-content-4">Data Engineer</span>
+                                <span class="lead" id="cycle-content-5">Business Consultant</span>
+                                <span class="lead" id="cycle-content-6">Web Developer</span>
+                  <span class="lead" id="cycle-content-7">Programmer</span><br>
+
+                 based in Tampa, FL</p>
+                <p><a href="#services-section" class="btn smoothscroll btn-primary">Services</a>  <a href="https://davelindleywebimages.s3.amazonaws.com/DaveLindleyDecember2019.pdf" class="btn smoothscroll btn-primary">My Resume</a></p>
 
               </div>
             </div>
@@ -169,12 +182,9 @@
 
 
       </div>
-
             <div class="imgbox">
-              <img src="images/dave-img.jpg" alt="Image" class="img-face" data-aos="fade" >
+              <img src="https://davelindleywebimages.s3.amazonaws.com/dave-img.jpg" alt="Image" class="img-face" data-aos="fade" >
             </div>
-
-      
     </div>  
 
     
@@ -240,7 +250,7 @@
           </div>
           <div class="col-lg-4 order-1 order-lg-2 mb-4 mb-lg-0">
             <div>
-            <img src="images/dave-img.jpg" alt="Image" class="img-fluid">
+            <img src="https://davelindleywebimages.s3.amazonaws.com/dave-img.jpg" alt="Image" class="img-fluid">
             </div>
           </div>
           <div class="col-lg-4 order-2 order-lg-1">
@@ -342,9 +352,7 @@
         <div class="row">
           <div class="col-12 text-center">
           <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved Dave Lindley</a>
             </p>
             </div>
         </div>
@@ -363,6 +371,23 @@
   <script src="js/jquery.fancybox.min.js"></script>
   <script src="js/jquery.sticky.js"></script>
   <script src="js/isotope.pkgd.min.js"></script>
+
+    <script>
+       var divs = $('span[id^="cycle-content-"]').hide(),
+    i = 0;
+
+    (function cycle() {
+
+        divs.eq(i).fadeIn(400)
+                  .delay(2000)
+                  .fadeOut(400, cycle);
+
+        i = ++i % divs.length;
+
+    })();
+    </script>
+
+
 
   
   <script src="js/main.js"></script>
